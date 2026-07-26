@@ -1,0 +1,9 @@
+ids_env/
+__pycache__/
+*.pyc
+data/raw/*.csv
+data/processed/*.csv
+models/*.pkl
+logs/*.log
+.DS_Store
+*.pcap
