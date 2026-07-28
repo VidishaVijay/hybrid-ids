@@ -34,9 +34,15 @@ hybrid-ids/
 
 ## Roadmap
 - [x] Day 1: Environment setup + packet capture
-- [ ] Day 2: Attack traffic generation
-- [ ] Day 3: Signature-based detection module
+- [x] Day 2: Attack traffic generation
+- [x] Day 3: Signature-based detection module
 - [ ] Day 4: ML anomaly detection model
 - [ ] Day 5: Hybrid pipeline integration
 - [ ] Day 6: Real-time dashboard
 - [ ] Day 7: Documentation + final polish
+
+## Known Issues / Notes
+- Signature detection initially had a false-positive issue where outgoing 
+  SYN-ACK responses from the monitored host were being misidentified as 
+  scan activity. Fixed by filtering for SYN-flag-only packets to isolate 
+  genuine incoming connection attempts.
