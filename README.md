@@ -85,6 +85,7 @@ Open `notebooks/ml_model.ipynb` and run all cells to reproduce training and eval
 - **Why hybrid?** Signature-based detection is fast and precise for known threats, but blind to novel attacks. ML-based detection generalizes better to unseen patterns, at the cost of some false positives. Combining both gives broader coverage than either alone.
 - **Model choice**: Gradient Boosting outperformed Random Forest on this dataset (81% vs 78% accuracy, better recall on attack traffic) and was selected as the final model.
 - **Recall vs precision tradeoff**: The model prioritizes precision (97%) — minimizing false alarms — which is critical in production environments where alert fatigue is a real operational cost. Some recall is traded off as a result; a chunk of missed attacks in testing reflects attack types absent from the training data entirely, which is a realistic challenge in intrusion detection since attacker behavior constantly evolves.
+- **Complementary detection coverage**: Testing showed the ML engine's live feature approximation is particularly effective at catching scan-like anomalies (high port diversity from a single source), while the signature engine reliably catches flood-pattern attacks (high volume to a single port) that don't strongly resemble the ML model's training distribution. This is direct evidence for the hybrid design's core premise — no single detection method covers every attack pattern, and combining approaches provides broader coverage than either alone.
 
 ## Roadmap
 
