@@ -80,6 +80,12 @@ Monitors live traffic and prints alerts when port scan or SYN flood patterns are
 ### Train / evaluate the ML model
 Open `notebooks/ml_model.ipynb` and run all cells to reproduce training and evaluation.
 
+### Run the full hybrid system with live dashboard
+```bash
+python src/dashboard.py
+```
+Open `http://localhost:5000` in your browser to view real-time detection alerts as they occur, combining both signature-based and ML-based detection engines.
+
 ## Design Notes
 
 - **Why hybrid?** Signature-based detection is fast and precise for known threats, but blind to novel attacks. ML-based detection generalizes better to unseen patterns, at the cost of some false positives. Combining both gives broader coverage than either alone.
@@ -92,6 +98,6 @@ Open `notebooks/ml_model.ipynb` and run all cells to reproduce training and eval
 - [x] Packet capture engine
 - [x] Signature-based detection (port scan, SYN flood)
 - [x] ML-based anomaly detection model
-- [ ] Hybrid detection pipeline (combining both engines)
-- [ ] Real-time alert dashboard
-- [ ] Final documentation and demo
+- [x] Hybrid detection pipeline (combining both engines)
+- [x] Real-time alert dashboard
+- [ ] Final documentation and demo video
